@@ -1,7 +1,3 @@
-// let Lquantity = 0;
-// let Mquantity = 0;
-// let Nquantity = 0;
-
 class Item {
   constructor(
     productId,
@@ -24,7 +20,7 @@ class Shop {
   }
 
   addElectronicsDiscount(productCategory, productPrice) {
-    if (this.items.items.has((productCategory = "electronics"))) {
+    if (this.items.has((productCategory = "electronics"))) {
       productPrice *= 0.15;
     }
     console.log(`The updated price after discount: ${productPrice} `);
@@ -53,7 +49,7 @@ class Shop {
   }
 }
 
-const cart = new Shop();
+// const cart = new Shop();
 cart = {
   items: [
     {
@@ -74,4 +70,27 @@ cart = {
   },
 };
 
-addElectronicsDiscount();
+for (let i = 0; i < 3; i++) {
+  if (cart.items[i].category == "electronics") {
+    console.log(
+      `Discount of 15% of ${cart.items[i].price} = ${(disprice =
+        cart.items[i].price - cart.items[i].price * 0.15)}  is added to ${
+        cart.items[i].name
+      } Therefore updated price=${disprice}`
+    );
+  }
+  if (cart.items[i].name == "Mouse") {
+    console.log(
+      `Discount of 20% of ${cart.items[i].price} = ${
+        cart.items[i].price * 0.2
+      }  is added to ${cart.items[i].name} `
+    );
+  }
+  if (cart.items[i].category == "stationery") {
+    console.log(
+      `You get to buy extra 1  of ${cart.items[i].name}  ${
+        cart.items[i].quantity + 1
+      }  is added to ${cart.items[i].name} `
+    );
+  }
+}
